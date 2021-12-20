@@ -1,6 +1,19 @@
 <template>
     <div>
-            <button @click="goToPage('home')"> 
+        <section>
+            <nav>
+                <div></div>
+                 <ul>
+                    <li data-xcoord="0px" class="active"  @click="goToPage('home')">
+                        Home
+                    </li>
+                    <li data-xcoord="160px">Game</li>
+                    <li data-xcoord="320px">Ranking</li>
+                </ul>
+            </nav>
+        </section>
+
+            <button> 
                 Go to home
             </button>
             <h1>
