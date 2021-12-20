@@ -1,60 +1,39 @@
 <template>
   <div id="app">
-    <Navigation/>
-    <h1>Euroson Festival</h1>
-    
-    <Feedback v-for="(message,index) in messages" :key = "index" :message="message.messages" :classType="message.classType" />
+    <!-- HOME -->
+    <Homepage v-if="page == 'home'" @change-page="goToPage" />
 
-    <Counter/>
+    <!-- GAME -->
+    <Gamepage v-if="page == 'game'" @change-page="goToPage" />
 
-    <button @click="addMessage">
-      Add message
-    </button>
-    
-
+    <!-- RANKING = Taak -->
+    <RankingPage v-if="page == 'ranking'" @change-page="goToPage" />
   </div>
 </template>
 
 <script>
-//Belangrijk om de juiste file te importen anders werkt het niet 
-import style from './scss/style.scss';
-
-import Navigation from "./components/Navigation.vue"
-import Counter from "./components/Counter.vue"
-import Feedback from "./components/Feedback.vue"
-
+import Homepage from './Pages/Homepage.vue';
+import Gamepage from './Pages/Gamepage.vue';
+import RankingPage from './Pages/RankingPage.vue';
+//import of whole style for the app
+import style from "./scss/style.scss";
+//import Navigation from "./components/navigation.vue"
 export default {
   name: 'App',
   components:{
-    Navigation,
-    Counter,
-    Feedback
+    Homepage,
+    Gamepage,
+    RankingPage
   },
   data() {
-    return {
-      messages: [
-        {
-          messages: "Error, tis kapot",
-          classType: "warning"
-        },
-        {
-          messages: "Great succes",
-          classType: "succes"
-        }
-      ]
+      return {
+      page: "game"
     }
   },
-   methods:{
-     addMessage() {
-       this.messages.push(
-         {
-           messages: "Alle nieuwe feeback",
-           classType: "succes"
-         }
-       )
-     }
-
+  methods: {
+    goToPage(page) {
+      this.page = page;
     }
+  }
 }
 </script>
-
