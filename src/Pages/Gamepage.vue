@@ -1,19 +1,5 @@
 <template>
   <div>
-    <div name="Nav">
-      <section>
-        <nav>
-          <ul>
-            <li data-xcoord="0px" @click="goToPage('home')">Home</li>
-            <li data-xcoord="160px" class="active" @click="goToPage('game')">
-              Game
-            </li>
-            <li data-xcoord="320px" @click="goToPage('ranking')">Ranking</li>
-          </ul>
-        </nav>
-      </section>
-    </div>
-
     <div class="carousel">
       <Carousel
         :songs="songs"
@@ -36,7 +22,7 @@ import Carousel from "../components/Carousel.vue";
 export default {
   name: "Gamepage",
   components: {
-    Carousel,
+    Carousel
   },
   data() {
     return {
@@ -67,10 +53,6 @@ export default {
     this.fetchSongs();
   },
   methods: {
-    // nav methodes
-    goToPage(page) {
-      this.$emit("change-page", page);
-    },
     //data methods
     fetchSongs() {
       const url = "http://webservies.be/eurosong/Songs";

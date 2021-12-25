@@ -1,5 +1,11 @@
 <template>
   <div id="app">
+    <div name="Nav">
+      <section>
+        <Navigation @change-page="goToPage" />       
+      </section>
+    </div>
+
     <!-- HOME -->
     <Homepage v-if="page == 'home'" @change-page="goToPage" />
 
@@ -15,6 +21,8 @@
 import Homepage from './Pages/Homepage.vue';
 import Gamepage from './Pages/Gamepage.vue';
 import RankingPage from './Pages/RankingPage.vue';
+import Navigation from "./components/Navigation.vue"
+
 //import of whole style for the app
 import style from "./scss/style.scss";
 //import Navigation from "./components/navigation.vue"
@@ -23,11 +31,12 @@ export default {
   components:{
     Homepage,
     Gamepage,
-    RankingPage
+    RankingPage,
+    Navigation
   },
   data() {
       return {
-      page: "game"
+      page: "home"
     }
   },
   methods: {

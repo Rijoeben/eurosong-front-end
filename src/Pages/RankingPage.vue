@@ -1,42 +1,23 @@
 <template>
   <div>
-    <div name="Nav">
-      <section>
-        <nav>
-          <ul>
-            <li data-xcoord="0px" @click="goToPage('home')">Home</li>
-            <li data-xcoord="160px" @click="goToPage('game')">Game</li>
-            <li data-xcoord="320px" class="active" @click="goToPage('ranking')">
-              Ranking
-            </li>
-          </ul>
-        </nav>
-      </section>
-    </div>
-
     <div class="ranks">
       <ul>
-        <li v-for="(song,index) in songs" :key="index">
-          <div class="ranking" @mouseover="song.visible=true" @mouseleave="song.visible=false">{{index +1 }} <div :class="{points: song.visible}">{{ song.results }} </div></div>
-         <!-- <div>{{ song.title }}</div>
-          <div>{{ song.artist.name }}</div> -->
-          <div><iframe
-          :src="song.spotify"
-          width="100%"
-          height="75px"
-          frameBorder="0" 
-          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-        ></iframe></div>
-        </li>
+        <Ranking class="rankingComp" v-for="(song,index) in songs" :key="index" :song="song" :index="index"/>
       </ul>
     </div>
+    
   </div>
 </template>
 
 <script>
 import Ranking from "../components/Ranking.vue";
+import Navigation from "../components/Navigation.vue"
 export default {
   name: "RankingPage",
+  components: {
+    Ranking,
+    Navigation
+  },
   data() {
     return {
       songs: [],
@@ -44,9 +25,6 @@ export default {
     };
   },
   methods: {
-    goToPage(page) {
-      this.$emit("change-page", page);
-    },
     fetchSongs() {
       const url = "http://webservies.be/eurosong/Songs";
 

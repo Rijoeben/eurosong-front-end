@@ -1,26 +1,30 @@
-.ranks{
-
-    ul{
-        list-style: none;
-        li{
-            width: 600px;
-            height: 113px;
-            border: 1px solid $primary-white;
-            margin: 25px;
-            text-align: center;
-            position: relative;
-            left: 50%;
-            transform: translateX(-60%);
-        }        
+.ranks {
+    ul {
+        width: 600px;
+        height: 113px;
+        margin: 25px;
+        position: relative;
+        left: 50%;
+        transform: translateX(-60%);
     }
 }
 
-.ranking{
+.ranking {
     background: $primary-white;
-    color:$primary-gray;
-    
+    color: $primary-gray;
+    display: flex;
+    justify-content: center;
 }
 
-.points{
+.songActive {
     display: none;
+}
+
+.result {
+    text-align: center;
+}
+
+.rankingComp{    
+    margin: 10px;
+    font-size: 18px;
 }
