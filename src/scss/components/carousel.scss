@@ -1,0 +1,39 @@
+.carousel{
+    width: 600px;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.car-container{
+
+    display: flex;
+    justify-content: center;
+    
+}
+
+.button{
+    margin:25px;
+    height: 50px;
+    margin-top:30%;
+    color:$primary-white;
+    background: $primary-gray;
+    border: 1px solid white;
+        &:hover{
+            background: white;
+            color: $primary-gray;
+            cursor: pointer;
+        }
+}
+
+.title{
+    text-align: center;
+    margin: 15px;
+    font-size:$font-size-medium ;
+    
+}
+
+.points{
+    display: flex;
+    justify-content: space-evenly;
+}

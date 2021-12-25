@@ -1,0 +1,26 @@
+.ranks{
+
+    ul{
+        list-style: none;
+        li{
+            width: 600px;
+            height: 113px;
+            border: 1px solid $primary-white;
+            margin: 25px;
+            text-align: center;
+            position: relative;
+            left: 50%;
+            transform: translateX(-60%);
+        }        
+    }
+}
+
+.ranking{
+    background: $primary-white;
+    color:$primary-gray;
+    
+}
+
+.points{
+    display: none;
+}
