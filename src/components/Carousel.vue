@@ -34,8 +34,6 @@ export default {
         index = 0;
       }
 
-      console.log(index);
-
       this.$emit("change-index", index);
     },
   },

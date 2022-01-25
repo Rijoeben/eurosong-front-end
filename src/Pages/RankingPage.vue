@@ -4,8 +4,7 @@
       <ul>
         <Ranking class="rankingComp" v-for="(song,index) in songs" :key="index" :song="song" :index="index"/>
       </ul>
-    </div>
-    
+    </div>    
   </div>
 </template>
 
@@ -79,7 +78,7 @@ export default {
               this.songs.sort(function(a, b) {
                     return b.results - a.results;
                 });
-                console.log(this.songs)
+                //console.log(this.songs)
           })
       });
     },
